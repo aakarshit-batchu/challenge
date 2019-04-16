@@ -1,7 +1,7 @@
 # Order Management Service(Nokia R & D Challenge)
 
 ## Introduction:
-This Order Management Micro-Service let's you perform CRUD operations over the Inventory and also will take Orders and generates Invoice.
+> This Order Management Micro-Service let's you perform CRUD operations over the Inventory and also will take Orders and generates Invoice.
 
 ## Installation:
 
@@ -17,31 +17,31 @@ This Order Management Micro-Service let's you perform CRUD operations over the I
 
 ## To Run the Service:
 
-The most preferrable way of running this service is using the bee tool, using which you dynamically generate swagger docs.
+> The most preferrable way of running this service is using the bee tool, using which you dynamically generate swagger docs.
 ```
 bee run -downdoc=true -gendoc=true
 ```
 
-The above command starts the service on the default http and admin ports (8080- httpport, 8088- adminport).
+> The above command starts the service on the default http and admin ports (8080- httpport, 8088- adminport).
 
-If Go is Not Installed on your machine, you can still Run the Service using the below command. (Executable Binary File is Also Provided)
+> If Go is Not Installed on your machine, you can still Run the Service using the below command. (Executable Binary File is Also Provided)
 ```
 ./challenge
 ```
 
 ## EndPoints Available:
 
-/inventory/ - You can perform all the CRUD operations on this API.(Sample JSON provided under the Sample JSON Structure)
+> - /inventory/ - You can perform all the CRUD operations on this API.(Sample JSON provided under the Sample JSON Structure)
 
-/order/ - Through this API you can post the customer input and generate an invoice according to his order. (Charges will be waived off for orders totalling above 500)
+> - /order/ - Through this API you can post the customer input and generate an invoice according to his order. (Charges will be waived off for orders totalling above 500)
 
-/about/ - On a GET Request to this API it will Return you the author and about of the service.
+> - /about/ - On a GET Request to this API it will Return you the author and about of the service.
 
-(For Example : If the Service is Running on localhost and 8080 port then "localhost:8080/inventory/" || "localhost:8080/order/")
+> - (For Example : If the Service is Running on localhost and 8080 port then "localhost:8080/inventory/" || "localhost:8080/order/")
 
-(For Metrics : You can access the beego monitoring page on 8088 port)
+> - (For Metrics : You can access the beego monitoring page on 8088 port)
 
-(For Swagger : You can access the swagger UI on 8080/swagger)
+> - (For Swagger : You can access the swagger UI on 8080/swagger)
 
 ## Deployment on Kubernetes:
 
@@ -51,11 +51,11 @@ If Go is Not Installed on your machine, you can still Run the Service using the 
 
 3. Run the K8s yaml file - ``` kubectl apply -f Deployment.yaml ```
 
-After performing the above steps you can see a deployment, pod and service running in the nokia-challenge namespace. You can access the 8080 and 8088 ports on the serviceIP or you can use their NodePorts on k8s api-server IP.
+> After performing the above steps you can see a deployment, pod and service running in the nokia-challenge namespace. You can access the 8080 and 8088 ports on the serviceIP or you can use their NodePorts on k8s api-server IP.
 
 ## Unit Tests:
 
-You can run the unit-test cases on this service by changing into tests directory and running the command ``` ginkgo ``` or ``` go test -v ```
+> You can run the unit-test cases on this service by changing into tests directory and running the command ``` ginkgo ``` or ``` go test -v ```
 
 ## Sample JSON:
 	
@@ -81,8 +81,8 @@ Request-5: curl -XPOST 10.71.3.11:8080/v1/order -d '{"name":"Aakarshit","address
 
 Response-5: {"status":"Success","message":"","result":{"Invoice":{"name":"Aakarshit","total":565,"taxes":101.700005,"charges":0,"amounttotal":666.7}}}
 
-Note: The amounttotal in the Invoice will be a sum of total order value + 18% GST + 5% charges (if ordervalue is less than 500)
+> Note: The amounttotal in the Invoice will be a sum of total order value + 18% GST + 5% charges (if ordervalue is less than 500)
 
 ## Author:
 
-   NAGA SAI AAKARSHIT BATCHU (uguessmyid@gmail.com)
+>   NAGA SAI AAKARSHIT BATCHU (uguessmyid@gmail.com)
