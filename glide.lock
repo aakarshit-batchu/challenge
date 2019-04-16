@@ -1,0 +1,102 @@
+hash: 4fea4af24ece10d7c7a082db041732b4e98870368ff2de85565b8fa6f20ca10b
+updated: 2019-04-16T11:34:45.714701092-04:00
+imports:
+- name: github.com/astaxie/beego
+  version: 3086081ec02803c7cb73fc7c40b7c656698b36dc
+  subpackages:
+  - config
+  - context
+  - context/param
+  - grace
+  - logs
+  - orm
+  - session
+  - toolbox
+  - utils
+- name: github.com/mattn/go-sqlite3
+  version: 31f5bb843b7852e28d5a66d1d539c042c3bb623a
+- name: github.com/shiena/ansicolor
+  version: a422bbe96644373c5753384a59d678f7d261ff10
+- name: golang.org/x/crypto
+  version: 88737f569e3a9c7ab309cdc09a07fe7fc87233c3
+  subpackages:
+  - acme
+  - acme/autocert
+- name: gopkg.in/yaml.v2
+  version: 51d6538a90f86fe93ac480b35f37b2be17fef232
+testImports:
+- name: github.com/hpcloud/tail
+  version: a1dbeea552b7c8df4b542c66073e393de198a800
+  subpackages:
+  - ratelimiter
+  - util
+  - watch
+  - winfile
+- name: github.com/onsi/ginkgo
+  version: eea6ad008b96acdaa524f5b409513bf062b500ad
+  subpackages:
+  - config
+  - internal/codelocation
+  - internal/containernode
+  - internal/failer
+  - internal/leafnodes
+  - internal/remote
+  - internal/spec
+  - internal/spec_iterator
+  - internal/specrunner
+  - internal/suite
+  - internal/testingtproxy
+  - internal/writer
+  - reporters
+  - reporters/stenographer
+  - reporters/stenographer/support/go-colorable
+  - reporters/stenographer/support/go-isatty
+  - types
+- name: github.com/onsi/gomega
+  version: 90e289841c1ed79b7a598a7cd9959750cb5e89e2
+  subpackages:
+  - format
+  - internal/assertion
+  - internal/asyncassertion
+  - internal/oraclematcher
+  - internal/testingtsupport
+  - matchers
+  - matchers/support/goraph/bipartitegraph
+  - matchers/support/goraph/edge
+  - matchers/support/goraph/node
+  - matchers/support/goraph/util
+  - types
+- name: golang.org/x/net
+  version: 1da14a5a36f220ea3f03470682b737b1dfd5de22
+  subpackages:
+  - html
+  - html/atom
+  - html/charset
+- name: golang.org/x/sys
+  version: 12500544f89f9420afe9529ba8940bf72d294972
+  subpackages:
+  - unix
+- name: golang.org/x/text
+  version: f4905fbd45b6790792202848439271c74074bbfd
+  subpackages:
+  - encoding
+  - encoding/charmap
+  - encoding/htmlindex
+  - encoding/internal
+  - encoding/internal/identifier
+  - encoding/japanese
+  - encoding/korean
+  - encoding/simplifiedchinese
+  - encoding/traditionalchinese
+  - encoding/unicode
+  - internal/language
+  - internal/language/compact
+  - internal/tag
+  - internal/utf8internal
+  - language
+  - runes
+  - transform
+- name: gopkg.in/fsnotify/fsnotify.v1
+  version: c2828203cd70a50dcccfb2761f8b1f8ceef9a8e9
+- name: gopkg.in/tomb.v1
+  version: c131134a1947e9afd9cecfe11f4c6dff0732ae58

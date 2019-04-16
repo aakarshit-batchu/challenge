@@ -1,0 +1,28 @@
+package: challenge
+import:
+- package: github.com/astaxie/beego
+  version: 3086081ec02803c7cb73fc7c40b7c656698b36dc
+  subpackages:
+  - config
+  - context
+  - context/param
+  - grace
+  - logs
+  - orm
+  - session
+  - toolbox
+  - utils
+- package: github.com/mattn/go-sqlite3
+  version: 31f5bb843b7852e28d5a66d1d539c042c3bb623a
+- package: github.com/shiena/ansicolor
+  version: a422bbe96644373c5753384a59d678f7d261ff10
+- package: golang.org/x/crypto
+  version: 88737f569e3a9c7ab309cdc09a07fe7fc87233c3
+  subpackages:
+  - acme
+  - acme/autocert
+- package: gopkg.in/yaml.v2
+  version: 51d6538a90f86fe93ac480b35f37b2be17fef232
+testImport:
+- package: github.com/onsi/ginkgo
+- package: github.com/onsi/gomega

@@ -1,0 +1,107 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: nokia-challenge
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    service: nokia-challenge
+  name: nokia-challenge
+  namespace: nokia-challenge
+spec:
+  type: NodePort
+  ports:
+  - name: ui
+    port: 8080
+    targetPort: 8080
+  - name: admin
+    port: 8088
+    targetPort: 8088
+  selector:
+    k8s-app: nokia-challenge
+---
+apiVersion: rbac.authorization.k8s.io/v1beta1
+kind: ClusterRole
+metadata:
+  name: nokia-challenge
+rules:
+- apiGroups: [""]
+  resources:
+  - services
+  verbs: ["get", "list", "watch"]
+- apiGroups: [""]
+  resources:
+  - configmaps
+  verbs: ["create", "update", "patch", "get", "list", "watch"]
+- apiGroups: [""]
+  resources:
+  - secrets
+  verbs: ["get", "list", "watch"]
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: nokia-challenge
+  namespace: nokia-challenge
+---
+apiVersion: rbac.authorization.k8s.io/v1beta1
+kind: ClusterRoleBinding
+metadata:
+  name: nokia-challenge
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: nokia-challenge
+subjects:
+- kind: ServiceAccount
+  name: ambassador
+  namespace: nokia-challenge
+
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nokia-challenge
+  namespace: "nokia-challenge"
+  labels:
+    k8s-app: nokia-challenge
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      k8s-app: nokia-challenge
+  template:
+    metadata:
+      labels:
+        k8s-app: nokia-challenge
+    spec:
+      nodeSelector:
+        node-role.nokia/challenge: "true"
+      containers:
+      - name: nokia-challenge
+        image: "uguessmyid/nokia-challenge:latest"
+        resources:
+          # keep request = limit to keep this container in guaranteed class
+          limits:
+            cpu: 5000m
+            memory: "5000M"
+          requests:
+            cpu: 1000m
+            memory: "2000M"
+        ports:
+        - containerPort: 8080
+          name: ui
+        - containerPort: 8088
+          name: admin
+        volumeMounts:
+        - name: inventory-storage
+          mountPath: /database/
+      volumes:
+      - name: inventory-storage
+        hostPath:
+          path: /database/
+      serviceAccountName: nokia-challenge
+
