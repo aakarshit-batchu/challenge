@@ -83,6 +83,9 @@ Response-5: {"status":"Success","message":"","result":{"Invoice":{"name":"Aakars
 
 > Note: The amounttotal in the Invoice will be a sum of total order value + 18% GST + 5% charges (if ordervalue is less than 500)
 
+## Dockerhub Image Details:
+> To pull the built image from dockerhub - ``` docker pull uguessmyid/nokia-challenge ```
+
 ## Author:
 
 >   NAGA SAI AAKARSHIT BATCHU (uguessmyid@gmail.com)
